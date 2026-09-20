@@ -94,7 +94,7 @@ jobs:
       - name: Build Firmware
         shell: bash
         run: |
-          make -j2 world 2>&1 | tee build.log
+          make -j2 V=sc world 2>&1 | tee build.log
 
       - name: Check build status
         if: always()
