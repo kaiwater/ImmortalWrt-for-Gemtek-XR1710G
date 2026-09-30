@@ -38,6 +38,18 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Switch code to target commit and keep latest config
+        run: |
+          # 1. 临时将当前最新（main分支/当前触发点）的 1700.config 备份到工作区之外
+          cp 1700.config /tmp/1700.config
+          
+          # 2. 将整个工作区切换到你要编译的特定历史版本
+          git checkout b94f6f29b39430805a4f5e20bbdd446205a262ed
+          
+          # 3. 将最新的配置文件覆盖回去
+          cp /tmp/1700.config ./1700.config
+          
+
       - name: Generate build version
         id: version
         run: |
