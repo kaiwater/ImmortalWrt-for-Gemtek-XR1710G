@@ -74,6 +74,7 @@ jobs:
           echo "version_number=$version_number" >> $GITHUB_OUTPUT
           echo "version_code=$version_code" >> $GITHUB_OUTPUT
           case '${{ inputs.config_seed }}' in
+            1710.0925.config) device_model=XR1710G ;;
             1710.config) device_model=XR1710G ;;
             2010.config) device_model=XG2010G ;;
             *) echo "Unsupported config seed: ${{ inputs.config_seed }}" >&2; exit 1 ;;
